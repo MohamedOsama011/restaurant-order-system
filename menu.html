@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/menu.css" />
+
+    </head>
+    <body>
+     <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="./images/logo.png" alt="Logo" class="logo" />
+                    <h2>Fine Taste Restaurant</h2>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+
+        <section class="page-header">
+            <div class="container">
+                <h1>Menue</h1>
+                <p>Choose from our wide variety of delicious dishes.</p>
+            </div>
+        </section>
+
+ 
+        <section class="menu-section">
+            <div class="container">
+                <div class="menu-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="choose your dish.."
+                        />
+                    </div>
+
+                    <div class="category-filter">
+                        <button class="filter-btn active" data-category="all">
+                            <i class="fas fa-border-all"></i>
+                            All
+                        </button>
+                        <button class="filter-btn" data-category="pizza">
+                            <i class="fas fa-pizza-slice"></i>
+                            Pizza
+                        </button>
+                        <button class="filter-btn" data-category="burger">
+                            <i class="fas fa-burger"></i>
+                            Burger
+                        </button>
+                        <button class="filter-btn" data-category="chicken">
+                            <i class="fas fa-drumstick-bite"></i>
+                            chicken
+                        </button>
+                        <button class="filter-btn" data-category="desserts">
+                            <i class="fas fa-ice-cream"></i>
+                            Desserts
+                        </button>
+                        <button class="filter-btn" data-category="drinks">
+                            <i class="fas fa-glass-water"></i>
+                           Drinks
+                        </button>
+                    </div>
+
+                    <div class="sort-filter">
+                        <div class="sort-box">
+                            <label for="sortSelect"> sort by:</label>
+                            <select id="sortSelect">
+                                <option value="default">default</option>
+                                <option value="price-asc">
+                                 Price: Low to High
+
+                                </option>
+                                <option value="price-desc">
+                                     Price: High to low
+                                </option>
+                                <option value="rating">Highest Rated</option>
+                                <option value="name"> Name: A-Z</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-options">
+                            <button class="filter-tag" data-filter="popular">
+                                <i class="fas fa-fire"></i>
+                               Most Popular
+                            </button>
+                            <button class="filter-tag" data-filter="new">
+                                <i class="fas fa-star"></i>
+                                New
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-info">
+                    <p>عرض <span id="resultCount">0</span> منتج</p>
+                </div>
+
+                <div class="menu-grid" id="menuGrid">
+                </div>
+
+                <div class="no-results" id="noResults" style="display: none">
+                    <i class="fas fa-search"></i>
+                    <h3>No Results Found</h3>
+                     <p>Try searching with different keywords or browse the available categories.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="toast" id="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Added to cart!
+</span>
+        </div>
+
+         <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Fine Taste Restaurant</h3>
+                        <p>The tastiest dishes & fastest delivery</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0123456789</li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                info@restaurant.com
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Cairo,
+                                Egypt
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Working Hours</h4>
+                        <ul>
+                            <li>Saturday - Thursday: 10 AM - 12 PM</li>
+                            <li>Friday: 2 PM - 12 PM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2024 Fine Taste Restaurant. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+      
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/menu.js"></script>
+    </body>
+</html>
