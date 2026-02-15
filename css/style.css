@@ -426,6 +426,49 @@ section {
     text-align: center;
 }
 
+/* notification */
+
+    .notification {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background-color: var(--success-color);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 600;
+        z-index: 10000;
+        opacity: 0;
+        transition: all 0.3s ease;
+        min-width: 300px;
+        max-width: 500px;
+    }
+    
+    .notification.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .notification i {
+        font-size: 1.5rem;
+    }
+    
+    .notification-error {
+        background-color: var(--danger-color);
+    }
+    
+    .notification-info {
+        background-color: #3498db;
+    }
+    
+    .notification-warning {
+        background-color: #f39c12;
+    }
 
 
 

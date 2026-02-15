@@ -1,5 +1,5 @@
 
-.hero {
+/* .hero {
     position: relative;
     height: 600px;
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
@@ -7,13 +7,19 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
+} */
 
 
 .hero {
-    background-image: url('./images/background_image.jpg');
+    position: relative;
+    background-image: url('../images/background_image.jpg');
     background-size: cover;
     background-position: center;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 

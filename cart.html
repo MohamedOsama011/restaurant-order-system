@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shopping Cart - Fine Taste Restaurant</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/cart.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="images/logo.png" alt="Logo" class="logo" />
+                    <h2>Fine Taste Restaurant</h2>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="page-header">
+            <div class="container">
+                <h1>Shopping Cart</h1>
+                <p>Review your order before checkout</p>
+            </div>
+        </section>
+
+        <section class="cart-section">
+            <div class="container">
+                <div class="empty-cart" id="emptyCart" style="display: none">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h2>Your cart is empty</h2>
+                    <p>You haven’t added any products yet</p>
+                    <a href="menu.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-utensils"></i>
+                        Browse Menu
+                    </a>
+                </div>
+
+                <div class="cart-content" id="cartContent">
+                    <div class="cart-layout">
+                        <div class="cart-items-section">
+                            <div class="section-header">
+                                <h2>
+                                    Products (<span id="itemsCount">0</span>)
+                                </h2>
+                                <button
+                                    class="btn-clear-cart"
+                                    onclick="clearCart()"
+                                >
+                                    <i class="fas fa-trash"></i>
+                                    Clear Cart
+                                </button>
+                            </div>
+
+                            <div class="cart-items" id="cartItems"></div>
+                        </div>
+
+                        <div class="order-summary-section">
+                            <div class="order-summary">
+                                <h3>Order Summary</h3>
+
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal">0 EGP</span>
+                                </div>
+
+                                <div class="summary-row">
+                                    <span>Delivery Fee:</span>
+                                    <span id="deliveryFee">30 EGP</span>
+                                </div>
+
+                                <div class="coupon-section">
+                                    <div class="coupon-input-wrapper">
+                                        <input
+                                            type="text"
+                                            id="couponInput"
+                                            placeholder="Enter discount code"
+                                        />
+                                        <button
+                                            class="btn-apply-coupon"
+                                            onclick="applyCoupon()"
+                                        >
+                                            Apply
+                                        </button>
+                                    </div>
+                                    <div
+                                        class="coupon-message"
+                                        id="couponMessage"
+                                    ></div>
+                                </div>
+
+                                <div
+                                    class="summary-row discount-row"
+                                    id="discountRow"
+                                    style="display: none"
+                                >
+                                    <span>Discount:</span>
+                                    <span
+                                        class="discount-amount"
+                                        id="discountAmount"
+                                        >- 0 EGP</span
+                                    >
+                                </div>
+
+                                <div class="summary-divider"></div>
+
+                                <div class="summary-row total-row">
+                                    <span>Total:</span>
+                                    <span class="total-price" id="totalPrice"
+                                        >0 EGP</span
+                                    >
+                                </div>
+
+                                <button
+                                    class="btn btn-primary btn-lg btn-checkout"
+                                    onclick="goToCheckout()"
+                                >
+                                    <i class="fas fa-credit-card"></i>
+                                    Checkout
+                                </button>
+
+                                <a
+                                    href="menu.html"
+                                    class="btn-continue-shopping"
+                                >
+                                    <i class="fas fa-arrow-right"></i>
+                                    Continue Shopping
+                                </a>
+                            </div>
+
+                            <div class="delivery-info">
+                                <div class="info-item">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <div>
+                                        <strong>Fast Delivery</strong>
+                                        <p>Within 30–45 minutes</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <div>
+                                        <strong>Secure Payment</strong>
+                                        <p>100% Encrypted Transactions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Fine Taste Restaurant</h3>
+                        <p>
+                            The most delicious dishes with the fastest delivery
+                        </p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0123456789</li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                info@restaurant.com
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Cairo,
+                                Egypt
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Working Hours</h4>
+                        <ul>
+                            <li>Saturday - Thursday: 10 AM - 12 AM</li>
+                            <li>Friday: 2 PM - 12 AM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2024 Fine Taste Restaurant. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <div class="toast" id="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Updated successfully!</span>
+        </div>
+
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/cart.js"></script>
+    </body>
+</html>

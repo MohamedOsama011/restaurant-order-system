@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="./css/style.css">
-          <link rel="stylesheet" href="./css/home.css">
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/home.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Restaurant Order System</title>
@@ -10,247 +10,304 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <img src="./images/logo.png" alt="Logo" class="logo" />
-                <h2>Fine Taste Restaurant</h2>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <a href="cart.html" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </a>
-                <button class="btn btn-primary">Sign Up</button>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h2>The Tastiest Dishes Await You</h2>
-            <p>Order now and enjoy fast delivery to your doorstep</p>
-            <div class="hero-buttons">
-                <a href="menu.html" class="btn btn-primary btn-lg">Order Now</a>
-                <a href="#menu-preview" class="btn btn-secondary btn-lg">View Menu</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="categories" id="categories">
-        <div class="container">
-            <h2 class="section-title">Browse by Category</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-pizza-slice"></i>
-                    </div>
-                    <h3>Pizza</h3>
-                    <p>15 Items</p>
-                    <a href="menu.html?category=pizza" class="btn btn-outline">Browse</a>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="./images/logo.png" alt="Logo" class="logo" />
+                    <h2>Fine Taste Restaurant</h2>
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-burger"></i>
-                    </div>
-                    <h3>Burger</h3>
-                    <p>12 Items</p>
-                    <a href="menu.html?category=burger" class="btn btn-outline">Browse</a>
-                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
 
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-drumstick-bite"></i>
-                    </div>
-                    <h3>Chicken</h3>
-                    <p>10 Items</p>
-                    <a href="menu.html?category=chicken" class="btn btn-outline">Browse</a>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-ice-cream"></i>
-                    </div>
-                    <h3>Desserts</h3>
-                    <p>8 Items</p>
-                    <a href="menu.html?category=desserts" class="btn btn-outline">Browse</a>
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-primary">Sign Up</button>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <section class="featured" id="menu-preview">
-        <div class="container">
-            <h2 class="section-title">Featured Dishes</h2>
-            <p class="section-subtitle">Try our most popular dishes</p>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2>The Tastiest Dishes Await You</h2>
+                <p>Order now and enjoy fast delivery to your doorstep</p>
+                <div class="hero-buttons">
+                    <a href="menu.html" class="btn btn-primary btn-lg"
+                        >Order Now</a
+                    >
+                    <a href="#menu-preview" class="btn btn-secondary btn-lg"
+                        >View Menu</a
+                    >
+                </div>
+            </div>
+        </section>
 
-            <div class="featured-grid">
-                <div class="food-card">
-                    <div class="food-image">
-                        <img src="./images/menu-items/pizza1.jpg" alt="Pizza" />
-                        <span class="badge badge-popular">Most Popular</span>
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2 class="section-title">Browse by Category</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-pizza-slice"></i>
+                        </div>
+                        <h3>Pizza</h3>
+                        <p>15 Items</p>
+                        <a
+                            href="menu.html?category=pizza"
+                            class="btn btn-outline"
+                            >Browse</a
+                        >
                     </div>
-                    <div class="food-details">
-                        <h3>Margherita Pizza</h3>
-                        <p class="food-description">Classic Italian pizza with cheese and fresh tomatoes</p>
-                        <div class="food-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4.5)</span>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-burger"></i>
                         </div>
-                        <div class="food-footer">
-                            <span class="food-price">EGP 120</span>
-                            <button class="btn btn-primary">Add to Cart</button>
+                        <h3>Burger</h3>
+                        <p>12 Items</p>
+                        <a
+                            href="menu.html?category=burger"
+                            class="btn btn-outline"
+                            >Browse</a
+                        >
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-drumstick-bite"></i>
                         </div>
+                        <h3>Chicken</h3>
+                        <p>10 Items</p>
+                        <a
+                            href="menu.html?category=chicken"
+                            class="btn btn-outline"
+                            >Browse</a
+                        >
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h3>Desserts</h3>
+                        <p>8 Items</p>
+                        <a
+                            href="menu.html?category=desserts"
+                            class="btn btn-outline"
+                            >Browse</a
+                        >
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="food-card">
-                    <div class="food-image">
-                        <img src="./images/menu-items/burger1.jpg" alt="Burger" />
-                        <span class="badge badge-new">New</span>
-                    </div>
-                    <div class="food-details">
-                        <h3>Classic Burger</h3>
-                        <p class="food-description">Premium beef burger with fresh vegetables</p>
-                        <div class="food-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.0)</span>
-                        </div>
-                        <div class="food-footer">
-                            <span class="food-price">EGP 85</span>
-                            <button class="btn btn-primary">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+        <section class="featured" id="menu-preview">
+            <div class="container">
+                <h2 class="section-title">Featured Dishes</h2>
+                <p class="section-subtitle">Try our most popular dishes</p>
 
-                <div class="food-card">
-                    <div class="food-image">
-                        <img src="./images/menu-items/chicken1.jpg" alt="Chicken" />
-                    </div>
-                    <div class="food-details">
-                        <h3>Grilled Chicken</h3>
-                        <p class="food-description">Grilled chicken breasts with special sauce</p>
-                        <div class="food-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(5.0)</span>
+                <div class="featured-grid">
+                    <div class="food-card">
+                        <div class="food-image">
+                            <img
+                                src="./images/menu-items/pizza1.jpg"
+                                alt="Pizza"
+                            />
+                            <span class="badge badge-popular"
+                                >Most Popular</span
+                            >
                         </div>
-                        <div class="food-footer">
-                            <span class="food-price">EGP 95</span>
-                            <button class="btn btn-primary">Add to Cart</button>
+                        <div class="food-details">
+                            <h3>Margherita Pizza</h3>
+                            <p class="food-description">
+                                Classic Italian pizza with cheese and fresh
+                                tomatoes
+                            </p>
+                            <div class="food-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5)</span>
+                            </div>
+                            <div class="food-footer">
+                                <span class="food-price">EGP 120</span>
+                                <button class="btn btn-primary">
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="text-center">
-                <a href="menu.html" class="btn btn-primary btn-lg">View More</a>
-            </div>
-        </div>
-    </section>
+                    <div class="food-card">
+                        <div class="food-image">
+                            <img
+                                src="./images/menu-items/burger1.jpg"
+                                alt="Burger"
+                            />
+                            <span class="badge badge-new">New</span>
+                        </div>
+                        <div class="food-details">
+                            <h3>Classic Burger</h3>
+                            <p class="food-description">
+                                Premium beef burger with fresh vegetables
+                            </p>
+                            <div class="food-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(4.0)</span>
+                            </div>
+                            <div class="food-footer">
+                                <span class="food-price">EGP 85</span>
+                                <button class="btn btn-primary">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-   
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">Choose Us</h2>
-        <div class="features-grid">
-            <div class="feature-box">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>Fast Delivery</h3>
-                <p>Get your order in less than 30 minutes</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-utensils"></i>
-                <h3>Fresh Food</h3>
-                <p>We use the finest fresh ingredients</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-star"></i>
-                <h3>High Quality</h3>
-                <p>Strict standards for hygiene and quality</p>
-            </div>
-            <div class="feature-box">
-                <i class="fas fa-headset"></i>
-                <h3>24/7 Support</h3>
-                <p>Customer service available at all times</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Fine Taste Restaurant</h3>
-                    <p>The tastiest dishes & fastest delivery</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <div class="food-card">
+                        <div class="food-image">
+                            <img
+                                src="./images/menu-items/chicken1.jpg"
+                                alt="Chicken"
+                            />
+                        </div>
+                        <div class="food-details">
+                            <h3>Grilled Chicken</h3>
+                            <p class="food-description">
+                                Grilled chicken breasts with special sauce
+                            </p>
+                            <div class="food-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <div class="food-footer">
+                                <span class="food-price">EGP 95</span>
+                                <button class="btn btn-primary">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> 0123456789</li>
-                        <li><i class="fas fa-envelope"></i> info@restaurant.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Working Hours</h4>
-                    <ul>
-                        <li>Saturday - Thursday: 10 AM - 12 PM</li>
-                        <li>Friday: 2 PM - 12 PM</li>
-                    </ul>
+                <div class="text-center">
+                    <a href="menu.html" class="btn btn-primary btn-lg"
+                        >View More</a
+                    >
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p>&copy; 2024 Fine Taste Restaurant. All rights reserved.</p>
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Choose Us</h2>
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your order in less than 30 minutes</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Fresh Food</h3>
+                        <p>We use the finest fresh ingredients</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-star"></i>
+                        <h3>High Quality</h3>
+                        <p>Strict standards for hygiene and quality</p>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Customer service available at all times</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/home.js"></script>
-</body>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Fine Taste Restaurant</h3>
+                        <p>The tastiest dishes & fastest delivery</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0123456789</li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                info@restaurant.com
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Cairo,
+                                Egypt
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Working Hours</h4>
+                        <ul>
+                            <li>Saturday - Thursday: 10 AM - 12 PM</li>
+                            <li>Friday: 2 PM - 12 PM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2024 Fine Taste Restaurant. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/home.js"></script>
+    </body>
 </html>
