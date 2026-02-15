@@ -83,7 +83,7 @@ function renderMenuItems(items) {
                     <span>(${item.rating})</span>
                 </div>
                 <div class="food-footer">
-                    <span class="food-price">${item.price}</span>
+                    <span class="food-price">${item.price} EGP</span>
                     <button class="btn btn-primary add-to-cart-btn" onclick="addToCart(${item.id})">
                         <i class="fas fa-shopping-cart"></i>
                         Add to card
@@ -100,7 +100,7 @@ function renderMenuItems(items) {
 
 function generateStars(rating) {
     const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
+    const hasHalfStar = rating % 1 !== 0;  
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
     let stars = "";
