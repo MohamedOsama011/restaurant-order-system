@@ -1,4 +1,3 @@
-
 let currentCategory = "all";
 let currentSort = "default";
 let currentFilter = null;
@@ -13,9 +12,7 @@ const resultCount = document.getElementById("resultCount");
 const noResults = document.getElementById("noResults");
 const toast = document.getElementById("toast");
 
-
 document.addEventListener("DOMContentLoaded", function () {
-   
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get("category");
 
@@ -26,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     displayMenuItems();
     updateCartCount();
 });
-
-
 
 function displayMenuItems() {
     let items = getAllItems();
@@ -54,7 +49,6 @@ function displayMenuItems() {
 
     resultCount.textContent = items.length;
 
-  
     if (items.length === 0) {
         menuGrid.style.display = "none";
         noResults.style.display = "block";
@@ -72,9 +66,14 @@ function renderMenuItems(items) {
         <div class="food-card" data-id="${item.id}">
             <div class="food-image">
                 <img src="${item.image}" alt="${item.name}" onerror="this.src='images/placeholder.jpg'">
-                ${item.popular ? '<span class="badge badge-popular">Most popular</span>' : ""}
-                ${item.isNew ? '<span class="badge badge-new">New</span>' : ""}
+                
+                <div class="badges-container">
+                    ${item.popular ? '<span class="badge badge-popular">Most popular</span>' : ""}
+                    ${item.isNew ? '<span class="badge badge-new">New</span>' : ""}
+                </div>
+
             </div>
+
             <div class="food-details">
                 <h3>${item.name}</h3>
                 <p class="food-description">${item.description}</p>
@@ -96,33 +95,27 @@ function renderMenuItems(items) {
         .join("");
 }
 
-
-
 function generateStars(rating) {
     const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;  
+    const hasHalfStar = rating % 1 !== 0;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
     let stars = "";
 
-    
     for (let i = 0; i < fullStars; i++) {
         stars += '<i class="fas fa-star"></i>';
     }
 
-    
     if (hasHalfStar) {
         stars += '<i class="fas fa-star-half-alt"></i>';
     }
 
-   
     for (let i = 0; i < emptyStars; i++) {
         stars += '<i class="far fa-star"></i>';
     }
 
     return stars;
 }
-
 
 function addToCart(itemId) {
     const item = getItemById(itemId);
@@ -144,15 +137,12 @@ function addToCart(itemId) {
         });
     }
 
-    
     localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCartCount();
 
-  
     showToast(`Added ${item.name} to the cart!`);
 }
-
 
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -163,8 +153,6 @@ function updateCartCount() {
         cartCountElement.textContent = totalItems;
     }
 }
-
-
 
 function showToast(message) {
     const toastMessage = document.getElementById("toastMessage");
@@ -177,16 +165,13 @@ function showToast(message) {
     }, 3000);
 }
 
-
 categoryButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
         currentCategory = this.dataset.category;
 
-        
         categoryButtons.forEach((b) => b.classList.remove("active"));
         this.classList.add("active");
 
-        
         displayMenuItems();
     });
 });
@@ -195,7 +180,6 @@ searchInput.addEventListener("input", function () {
     searchQuery = this.value.trim();
     displayMenuItems();
 });
-
 
 sortSelect.addEventListener("change", function () {
     currentSort = this.value;
@@ -218,7 +202,6 @@ filterTags.forEach((tag) => {
         displayMenuItems();
     });
 });
-
 
 function updateCategoryButtons() {
     categoryButtons.forEach((btn) => {
