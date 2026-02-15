@@ -51,7 +51,7 @@ const menuItems = [
         name: "BBQ Chicken Pizza",
         category: "pizza",
         price: 145,
-        image: "images/menu-items/1.jpg",
+        image: "images/menu-items/pizza1.jpg",
         description: "Pizza with chicken and delicious BBQ sauce",
         rating: 4.8,
         popular: true,
