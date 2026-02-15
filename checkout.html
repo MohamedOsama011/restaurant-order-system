@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Checkout - Fine Taste Restaurant</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/checkout.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="images/logo.png" alt="Logo" class="logo" />
+                    <h2>Fine Taste Restaurant</h2>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-primary">Login</button>
+                </div>
+
+                
+            </div>
+        </nav>
+
+        <section class="page-header">
+            <div class="container">
+                <h1>Checkout</h1>
+                <p>Fill in the details to complete your order</p>
+            </div>
+        </section>
+
+        <section class="checkout-steps" dir="ltr">
+            <div class="container">
+                <div class="steps">
+                    <div class="step completed">
+                        <div class="step-number">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span>Cart</span>
+                    </div>
+                    <div class="step-line completed"></div>
+                    <div class="step active">
+                        <div class="step-number">2</div>
+                        <span>Delivery Information</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <span>Order Confirmation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkout-section" dir="ltr">
+            <div class="container">
+                <div class="checkout-layout">
+                    <div class="checkout-form-section">
+                        <form id="checkoutForm" onsubmit="return false;">
+                            <div class="form-section">
+                                <h2 class="form-section-title">
+                                    <i class="fas fa-user"></i>
+                                    Personal Information
+                                </h2>
+
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        placeholder="Enter your full name"
+                                        required
+                                    />
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone"
+                                            >Phone Number *</label
+                                        >
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            placeholder="01xxxxxxxxx"
+                                            required
+                                        />
+                                        <span class="error-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            placeholder="example@email.com"
+                                        />
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="form-section-title">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Delivery Address
+                                </h2>
+
+                                <div class="form-group">
+                                    <label for="address">Full Address *</label>
+                                    <input
+                                        type="text"
+                                        id="address"
+                                        name="address"
+                                        placeholder="Street, Area, City"
+                                        required
+                                    />
+                                    <span class="error-message"></span>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="building"
+                                            >Building Number *</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="building"
+                                            name="building"
+                                            placeholder="Building Number"
+                                            required
+                                        />
+                                        <span class="error-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="floor">Floor</label>
+                                        <input
+                                            type="text"
+                                            id="floor"
+                                            name="floor"
+                                            placeholder="Floor Number"
+                                        />
+                                        <span class="error-message"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="apartment"
+                                            >Apartment Number</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="apartment"
+                                            name="apartment"
+                                            placeholder="Apartment Number"
+                                        />
+                                        <span class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="form-section-title">
+                                    <i class="fas fa-clock"></i>
+                                    Delivery Time
+                                </h2>
+
+                                <div class="delivery-time-options">
+                                    <label class="radio-option">
+                                        <input
+                                            type="radio"
+                                            name="deliveryTime"
+                                            value="asap"
+                                            checked
+                                        />
+                                        <div class="radio-content">
+                                            <i class="fas fa-shipping-fast"></i>
+                                            <div>
+                                                <strong
+                                                    >Express Delivery</strong
+                                                >
+                                                <p>Within 30-45 minutes</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label class="radio-option">
+                                        <input
+                                            type="radio"
+                                            name="deliveryTime"
+                                            value="scheduled"
+                                        />
+                                        <div class="radio-content">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <div>
+                                                <strong
+                                                    >Scheduled Delivery</strong
+                                                >
+                                                <p>Select a preferred time</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div
+                                    class="scheduled-time"
+                                    id="scheduledTime"
+                                    style="display: none"
+                                >
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="deliveryDate"
+                                                >Date</label
+                                            >
+                                            <input
+                                                type="date"
+                                                id="deliveryDate"
+                                                name="deliveryDate"
+                                            />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="deliveryTimeSlot"
+                                                >Time</label
+                                            >
+                                            <select
+                                                id="deliveryTimeSlot"
+                                                name="deliveryTimeSlot"
+                                            >
+                                                <option value="">
+                                                    Select Time
+                                                </option>
+                                                <option value="12:00-14:00">
+                                                    12:00 - 2:00 PM
+                                                </option>
+                                                <option value="14:00-16:00">
+                                                    2:00 - 4:00 PM
+                                                </option>
+                                                <option value="16:00-18:00">
+                                                    4:00 - 6:00 PM
+                                                </option>
+                                                <option value="18:00-20:00">
+                                                    6:00 - 8:00 PM
+                                                </option>
+                                                <option value="20:00-22:00">
+                                                    8:00 - 10:00 PM
+                                                </option>
+                                                <option value="22:00-00:00">
+                                                    10:00 PM - 12:00 AM
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="form-section-title">
+                                    <i class="fas fa-credit-card"></i>
+                                    Payment Method
+                                </h2>
+
+                                <div class="payment-methods">
+                                    <label class="payment-option">
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="cash"
+                                            checked
+                                        />
+                                        <div class="payment-content">
+                                            <i
+                                                class="fas fa-money-bill-wave"
+                                            ></i>
+                                            <span>Cash on Delivery</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="payment-option">
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="card"
+                                        />
+                                        <div class="payment-content">
+                                            <i class="fas fa-credit-card"></i>
+                                            <span>Credit Card</span>
+                                        </div>
+                                    </label>
+
+                                    <label class="payment-option">
+                                        <input
+                                            type="radio"
+                                            name="paymentMethod"
+                                            value="wallet"
+                                        />
+                                        <div class="payment-content">
+                                            <i class="fas fa-wallet"></i>
+                                            <span>Digital Wallet</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2 class="form-section-title">
+                                    <i class="fas fa-comment"></i>
+                                    Special Notes
+                                </h2>
+
+                                <div class="form-group">
+                                    <textarea
+                                        id="notes"
+                                        name="notes"
+                                        rows="4"
+                                        placeholder="Any special notes for your order (optional)"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="order-summary-sidebar">
+                        <div class="summary-card">
+                            <h3>Order Summary</h3>
+
+                            <div class="order-items" id="orderItems"></div>
+
+                            <div class="summary-divider"></div>
+
+                            <div class="summary-details">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span id="summarySubtotal">0 EGP</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Delivery Fee:</span>
+                                    <span id="summaryDelivery">30 EGP</span>
+                                </div>
+                                <div
+                                    class="summary-row discount-row"
+                                    id="summaryDiscountRow"
+                                    style="display: none"
+                                >
+                                    <span>Discount:</span>
+                                    <span
+                                        class="discount-amount"
+                                        id="summaryDiscount"
+                                        >- 0 EGP</span
+                                    >
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-row total-row">
+                                    <span>Total:</span>
+                                    <span class="total-price" id="summaryTotal"
+                                        >0 EGP</span
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="summary-actions">
+                                <button
+                                    class="btn btn-primary btn-lg"
+                                    onclick="submitOrder()"
+                                >
+                                    <i class="fas fa-check-circle"></i>
+                                    Confirm Order
+                                </button>
+                                <a href="cart.html" class="btn-back-to-cart">
+                                    <i class="fas fa-arrow-right"></i>
+                                    Back to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Fine Taste Restaurant</h3>
+                        <p>
+                            The most delicious dishes with the fastest delivery
+                        </p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="menu.html">Menu</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> 0123456789</li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                info@restaurant.com
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Cairo,
+                                Egypt
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Working Hours</h4>
+                        <ul>
+                            <li>Saturday - Thursday: 10 AM - 12 AM</li>
+                            <li>Friday: 2 PM - 12 AM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>
+                        &copy; 2024 Fine Taste Restaurant. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p>Processing your order...</p>
+        </div>
+
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/checkout.js"></script>
+    </body>
+</html>

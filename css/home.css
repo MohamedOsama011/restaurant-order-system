@@ -44,9 +44,9 @@
 
 .hero-content h2 {
     font-size: 3.5rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .hero-content p {
