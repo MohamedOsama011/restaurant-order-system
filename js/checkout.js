@@ -14,7 +14,7 @@ const deliveryTimeRadios = document.querySelectorAll(
 
 document.addEventListener("DOMContentLoaded", function () {
     if (!isLoggedIn()) {
-        alert('يجب تسجيل الدخول أولاً');
+        alert('Must login first');
         window.location.href = 'auth.html?redirect=checkout.html';
         return;
     }
