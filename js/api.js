@@ -1,317 +1,126 @@
-// ==================== //
-// Mock API using XMLHttpRequest
-// ==================== //
 
-// Mock API Base URL (simulation)
-const API_BASE_URL = "/api"; // In reality, we will use localStorage
+// API Configuration
 
-// Simulate API delay
-const API_DELAY = 1500; // 1.5 seconds
+const API_BASE_URL = 'https://dummyjson.com';
 
-// ==================== //
-// Helper: Simulate XMLHttpRequest
-// ==================== //
+// Make XMLHttpRequest
 
 function makeRequest(method, endpoint, data, callback) {
-    // Create XMLHttpRequest object
     const xhr = new XMLHttpRequest();
-
-    // Simulate API endpoint
     const url = API_BASE_URL + endpoint;
-
-    // Configure request
+    
+    console.log(`Making ${method} request to: ${url}`);
+    
     xhr.open(method, url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    // Handle response
-    xhr.onreadystatechange = function () {
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    
+    xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            // Simulate network delay
-            setTimeout(() => {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    callback(null, response);
-                } else {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                const response = JSON.parse(xhr.responseText);
+                console.log('Success:', response);
+                callback(null, response);
+            } else {
+                try {
                     const error = JSON.parse(xhr.responseText);
+                    console.log('Error:', error);
                     callback(error, null);
+                } catch (e) {
+                    callback({ message: 'Request failed' }, null);
                 }
-            }, API_DELAY);
+            }
         }
     };
-
-    // Handle errors
-    xhr.onerror = function () {
-        callback({ message: "Connection error occurred" }, null);
+    
+    xhr.onerror = function() {
+        console.error('Network error');
+        callback({ message: 'Network error occurred' }, null);
     };
-
-    // Send request
+    
     if (data) {
-        // Simulate server response
-        simulateServerResponse(method, endpoint, data, xhr);
+        xhr.send(JSON.stringify(data));
     } else {
-        simulateServerResponse(method, endpoint, null, xhr);
+        xhr.send();
     }
 }
 
-// ==================== //
-// Simulate Server Response
-// ==================== //
+// Login API
 
-function simulateServerResponse(method, endpoint, data, xhr) {
-    // Simulate server response
-
-    if (endpoint === "/auth/signup") {
-        handleSignupAPI(data, xhr);
-    } else if (endpoint === "/auth/login") {
-        handleLoginAPI(data, xhr);
-    } else if (endpoint === "/auth/logout") {
-        handleLogoutAPI(xhr);
-    } else if (endpoint === "/user/profile") {
-        handleGetProfileAPI(xhr);
-    } else {
-        // Not found
-        const response = JSON.stringify({
-            success: false,
-            message: "Endpoint not found",
-        });
-        Object.defineProperty(xhr, "status", { value: 404, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-        Object.defineProperty(xhr, "readyState", { value: 4, writable: true });
-        xhr.onreadystatechange();
-    }
-}
-
-// ==================== //
-// API Handlers
-// ==================== //
-
-function handleSignupAPI(data, xhr) {
-    // Get existing users
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Check if email already exists
-    const existingUser = users.find((u) => u.email === data.email);
-
-    if (existingUser) {
-        // Email already exists
-        const response = JSON.stringify({
-            success: false,
-            message: "Email is already in use",
-        });
-        Object.defineProperty(xhr, "status", { value: 400, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-    } else {
-        // Create new user
-        const newUser = {
-            id: generateUserId(),
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            password: data.password, // In reality, this should be encrypted
-            createdAt: new Date().toISOString(),
-        };
-
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
-
-        // Create session
-        const session = {
-            userId: newUser.id,
-            email: newUser.email,
-            name: newUser.name,
-            token: generateToken(),
-        };
-        localStorage.setItem("session", JSON.stringify(session));
-
-        const response = JSON.stringify({
-            success: true,
-            message: "Account created successfully",
-            data: {
-                user: {
-                    id: newUser.id,
-                    name: newUser.name,
-                    email: newUser.email,
-                    phone: newUser.phone,
-                },
-                token: session.token,
-            },
-        });
-        Object.defineProperty(xhr, "status", { value: 200, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-    }
-
-    Object.defineProperty(xhr, "readyState", { value: 4, writable: true });
-    xhr.onreadystatechange();
-}
-
-function handleLoginAPI(data, xhr) {
-    // Get existing users
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    // Find user
-    const user = users.find(
-        (u) => u.email === data.email && u.password === data.password,
-    );
-
-    if (!user) {
-        // Invalid credentials
-        const response = JSON.stringify({
-            success: false,
-            message: "Email or password is incorrect",
-        });
-        Object.defineProperty(xhr, "status", { value: 401, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-    } else {
-        // Create session
-        const session = {
-            userId: user.id,
-            email: user.email,
-            name: user.name,
-            token: generateToken(),
-        };
-        localStorage.setItem("session", JSON.stringify(session));
-
-        const response = JSON.stringify({
-            success: true,
-            message: "Login successful",
-            data: {
-                user: {
-                    id: user.id,
-                    name: user.name,
-                    email: user.email,
-                    phone: user.phone,
-                },
-                token: session.token,
-            },
-        });
-        Object.defineProperty(xhr, "status", { value: 200, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-    }
-
-    Object.defineProperty(xhr, "readyState", { value: 4, writable: true });
-    xhr.onreadystatechange();
-}
-
-function handleLogoutAPI(xhr) {
-    localStorage.removeItem("session");
-
-    const response = JSON.stringify({
-        success: true,
-        message: "Logout successful",
-    });
-    Object.defineProperty(xhr, "status", { value: 200, writable: true });
-    Object.defineProperty(xhr, "responseText", {
-        value: response,
-        writable: true,
-    });
-    Object.defineProperty(xhr, "readyState", { value: 4, writable: true });
-    xhr.onreadystatechange();
-}
-
-function handleGetProfileAPI(xhr) {
-    const session = JSON.parse(localStorage.getItem("session"));
-
-    if (!session) {
-        const response = JSON.stringify({
-            success: false,
-            message: "Not logged in",
-        });
-        Object.defineProperty(xhr, "status", { value: 401, writable: true });
-        Object.defineProperty(xhr, "responseText", {
-            value: response,
-            writable: true,
-        });
-    } else {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.find((u) => u.id === session.userId);
-
-        if (!user) {
-            const response = JSON.stringify({
-                success: false,
-                message: "User not found",
-            });
-            Object.defineProperty(xhr, "status", {
-                value: 404,
-                writable: true,
-            });
-            Object.defineProperty(xhr, "responseText", {
-                value: response,
-                writable: true,
-            });
+function apiLogin(email, password, callback) {
+    // DummyJSON uses username instead of email
+    const data = {
+        username: email.split('@')[0], // Use part before @ as username
+        password: password
+    };
+    
+    makeRequest('POST', '/auth/login', data, function(error, response) {
+        if (error) {
+            callback({ success: false, message: 'Invalid username or password' });
         } else {
-            const response = JSON.stringify({
-                success: true,
-                data: {
-                    user: {
-                        id: user.id,
-                        name: user.name,
-                        email: user.email,
-                        phone: user.phone,
-                    },
-                },
-            });
-            Object.defineProperty(xhr, "status", {
-                value: 200,
-                writable: true,
-            });
-            Object.defineProperty(xhr, "responseText", {
-                value: response,
-                writable: true,
-            });
+            // Save user data
+            const user = {
+                id: response.id,
+                username: response.username,
+                email: response.email,
+                firstName: response.firstName,
+                lastName: response.lastName,
+                token: response.token
+            };
+            
+            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('token', response.token);
+            
+            callback({ success: true, message: 'Login successful', user: user });
         }
-    }
-
-    Object.defineProperty(xhr, "readyState", { value: 4, writable: true });
-    xhr.onreadystatechange();
+    });
 }
 
-// ==================== //
+
+// Signup API (Simulated)
+
+function apiSignup(name, email, password, callback) {
+    // DummyJSON doesn't have real signup, so we'll simulate it
+    // In real app, this would be a real API call
+    
+    // Simulate API delay
+    setTimeout(() => {
+        // Save user data locally
+        const user = {
+            id: Date.now(),
+            username: email.split('@')[0],
+            email: email,
+            firstName: name.split(' ')[0],
+            lastName: name.split(' ')[1] || '',
+            token: 'dummy_token_' + Date.now()
+        };
+        
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', user.token);
+        
+        callback({ success: true, message: 'Account created successfully', user: user });
+    }, 1000);
+}
+
+
 // Helper Functions
-// ==================== //
 
-function generateUserId() {
-    return "user_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
-}
-
-function generateToken() {
-    return (
-        "token_" + Date.now() + "_" + Math.random().toString(36).substr(2, 16)
-    );
-}
-
-// ==================== //
-// Check if user is logged in
-// ==================== //
 
 function isLoggedIn() {
-    const session = localStorage.getItem("session");
-    return session !== null;
+    return localStorage.getItem('token') !== null;
 }
 
 function getCurrentUser() {
-    const session = localStorage.getItem("session");
-    return session ? JSON.parse(session) : null;
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
 }
 
 function logout() {
-    makeRequest("POST", "/auth/logout", null, function (error, response) {
-        if (!error && response.success) {
-            window.location.href = "index.html";
-        }
-    });
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.href = 'auth.html';
 }
+
+function getAuthToken() {
+    return localStorage.getItem('token');
+}
+

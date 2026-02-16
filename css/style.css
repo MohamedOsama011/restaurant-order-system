@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 :root {
     /* Colors */
@@ -475,9 +478,9 @@ section {
 }
 
 /* ------------------------------------ */
-/* ==================== */
+
 /* User Menu */
-/* ==================== */
+
 
 .user-menu {
     position: relative;
@@ -562,10 +565,4 @@ section {
     height: 1px;
     background-color: var(--border-color);
     margin: 0.5rem 0;
-}
-
-@media (max-width: 768px) {
-    .user-menu {
-        display: none;
-    }
 }

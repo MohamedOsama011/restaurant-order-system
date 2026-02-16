@@ -98,26 +98,6 @@ function showNotification(message, type = "success", duration = 3000) {
     }, duration);
 }
 
-// Scroll Functions
-
-function scrollToTop(smooth = true) {
-    window.scrollTo({
-        top: 0,
-        behavior: smooth ? "smooth" : "auto",
-    });
-}
-
-function scrollToElement(elementId, offset = 0) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        const top = element.offsetTop - offset;
-        window.scrollTo({
-            top: top,
-            behavior: "smooth",
-        });
-    }
-}
-
 // Random Functions
 
 function generateRandomId() {
@@ -130,23 +110,7 @@ function generateOrderNumber() {
     return `ORD-${timestamp}-${random}`;
 }
 
-// Debounce Function
 
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// ==================== //
-// Update Navbar Based on Login Status
-// ==================== //
 
 document.addEventListener("DOMContentLoaded", function () {
     updateNavbar();
@@ -162,7 +126,7 @@ function updateNavbar() {
 
         // Replace login button with user menu
         const existingBtn = navActions.querySelector(".btn-primary");
-        if (existingBtn && existingBtn.textContent.includes("تسجيل دخول")) {
+        if (existingBtn && existingBtn.textContent.includes("Sign Up")) {
             existingBtn.remove();
 
             // Create user menu
@@ -171,26 +135,26 @@ function updateNavbar() {
             userMenu.innerHTML = `
                 <button class="user-menu-btn">
                     <i class="fas fa-user-circle"></i>
-                    <span>${user.name.split(" ")[0]}</span>
+                    <span>${user.username.split(" ")[0]}</span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="user-dropdown">
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-user"></i>
-                        حسابي
+                        My account
                     </a>
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-shopping-bag"></i>
-                        طلباتي
+                        My Orders
                     </a>
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-heart"></i>
-                        المفضلة
+                        Favorites
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item" onclick="logout(); return false;">
                         <i class="fas fa-sign-out-alt"></i>
-                        تسجيل الخروج
+                        Logout
                     </a>
                 </div>
             `;

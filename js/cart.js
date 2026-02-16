@@ -27,6 +27,7 @@ const couponMessage = document.getElementById("couponMessage");
 // Initialize Page
 
 document.addEventListener("DOMContentLoaded", function () {
+    updateNavbar()
     displayCart();
     updateCartCount();
 });
