@@ -144,3 +144,72 @@ function debounce(func, wait) {
     };
 }
 
+// ==================== //
+// Update Navbar Based on Login Status
+// ==================== //
+
+document.addEventListener("DOMContentLoaded", function () {
+    updateNavbar();
+});
+
+function updateNavbar() {
+    const navActions = document.querySelector(".nav-actions");
+
+    if (!navActions) return;
+
+    if (isLoggedIn()) {
+        const user = getCurrentUser();
+
+        // Replace login button with user menu
+        const existingBtn = navActions.querySelector(".btn-primary");
+        if (existingBtn && existingBtn.textContent.includes("تسجيل دخول")) {
+            existingBtn.remove();
+
+            // Create user menu
+            const userMenu = document.createElement("div");
+            userMenu.className = "user-menu";
+            userMenu.innerHTML = `
+                <button class="user-menu-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span>${user.name.split(" ")[0]}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        حسابي
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-shopping-bag"></i>
+                        طلباتي
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-heart"></i>
+                        المفضلة
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" onclick="logout(); return false;">
+                        <i class="fas fa-sign-out-alt"></i>
+                        تسجيل الخروج
+                    </a>
+                </div>
+            `;
+
+            navActions.appendChild(userMenu);
+
+            // Toggle dropdown
+            const menuBtn = userMenu.querySelector(".user-menu-btn");
+            const dropdown = userMenu.querySelector(".user-dropdown");
+
+            menuBtn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                dropdown.classList.toggle("show");
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function () {
+                dropdown.classList.remove("show");
+            });
+        }
+    }
+}

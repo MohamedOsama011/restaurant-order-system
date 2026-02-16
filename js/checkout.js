@@ -13,6 +13,11 @@ const deliveryTimeRadios = document.querySelectorAll(
 );
 
 document.addEventListener("DOMContentLoaded", function () {
+    if (!isLoggedIn()) {
+        alert('يجب تسجيل الدخول أولاً');
+        window.location.href = 'auth.html?redirect=checkout.html';
+        return;
+    }
     const orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
 
     if (!orderSummary || orderSummary.items.length === 0) {
